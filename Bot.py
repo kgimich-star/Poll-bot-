@@ -10,8 +10,10 @@ from aiogram.types import (
     InlineKeyboardButton,
 )
 
-BOT_TOKEN = "YOUR_BOT_TOKEN"
-ADMIN_ID = 123456789  # Apna Telegram user ID
+import os
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
 bot = Bot(BOT_TOKEN)
 dp = Dispatcher()
@@ -72,8 +74,8 @@ async def drop_name(callback: CallbackQuery):
     waiting_for_name.add(callback.from_user.id)
 
     await callback.message.answer(
-        "✍️ Apna naam bhejo.\n\n"
-        "Example: Arjun"
+        "✍️  naam bhej.\n\n"
+        "Example: ᴳᵒᵈﾒRαϝƚααɾ"
     )
 
     await callback.answer()
@@ -122,7 +124,7 @@ async def start_drop(callback: CallbackQuery):
 
     await callback.message.answer(
         "🔥 NAME DROP STARTED 🔥\n\n"
-        "Sab apna naam drop karo 👇",
+        "Sab apna naam drop karo gnduuu 👇",
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(
@@ -188,7 +190,7 @@ async def create_poll(callback: CallbackQuery):
         return
 
     await callback.message.answer_poll(
-        question="🔥 WHO IS THE BEST? 🔥",
+        question="🔥 KON WIN KAREGA PAII? 🔥",
         options=options,
         is_anonymous=False,
         allows_multiple_answers=False
